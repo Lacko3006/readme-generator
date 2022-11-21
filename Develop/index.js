@@ -8,15 +8,7 @@ const fs = require('fs')
 // }]),
 
 // TODO: Create an array of questions for user input
-const questions = [{
-    type: "input",
-    name: "title",
-    prompt: "What is your project name?"
-}];
 
-const promptQuestions = questions.map(({type, name, prompt}) => ({prompt}))
-
-console.log(promptQuestions)
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}

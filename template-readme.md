@@ -5,7 +5,7 @@
 
 
 ## Table of Contents
-£
+
 
 
 
@@ -26,7 +26,7 @@ $
 &
 
 ## License
-
+*
 
 
 ## Questions

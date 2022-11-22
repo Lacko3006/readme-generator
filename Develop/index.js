@@ -7,21 +7,21 @@ const questions = [
   "Installation",
   "Usage",
   "Contribution",
-  "Test",
+  "Tests",
 ];
 
 const licenseQuestion = {
-    type: "list",
-    name: "license",
-    message: "License"
-    choices: [
+  type: "list",
+  name: "License",
+  message: "License",
+  choices: [
+    "Apache License, Version 2.0",
+    "The MIT License",
+    "Mozilla Public License 2.0 (MPL-2.0)",
+  ],
+};
 
-    ]
-}
-
-questionsArray.push(licenseQuestion)
-
-const questionsArray = questions.map(it => {
+const questionsArray = questions.map((it) => {
   return {
     type: "input",
     name: it,
@@ -29,36 +29,33 @@ const questionsArray = questions.map(it => {
   };
 });
 
-// async function askQuestions() {
-//   return await inquirer.prompt(questionsArray);
-// }
+questionsArray.push(licenseQuestion);
 
-async function collectAnswersAndGenerate() {
-    console.log('Answer some questions, dude.')
-    const responses = await askQuestions(dummyAnswers)
-    console.log('Generating HTML from template.')
-    await generateReadMe(responses)
-    console.log('All done, dude.')
-  }
-
-async function generateReadMe(answers) {
-    const templateDocument = await fs.promises.readFile('/Users/samlaxton/Desktop/bootcamp/coding-ass/readme-generator/template-readme.md', 'utf8')
-    const readMeProfile = templateDocument
-      .replace('!', answers.Title)
-      .replace('@', answers.Description)
-      .replace('£', answers.Installation)
-      .replace('$', answers.Usage)
-      .replace('%', answers.Contribution)
-    await fs.promises.writeFile('readme.md', readMeProfile)
-  }
-
-const dummyAnswers = {
-    Title: "hello",
-  Description: "yes",
-  Installation: "how",
-  Usage: "no",
-  Contribution: "okay",
-  Test: "what",
+async function askQuestions() {
+  return await inquirer.prompt(questionsArray);
 }
 
-collectAnswersAndGenerate()
+async function collectAnswersAndGenerate() {
+  console.log("Answer some questions, dude.");
+  const responses = await askQuestions(dummyAnswers);
+  console.log("Generating HTML from template.");
+  await generateReadMe(responses);
+  console.log("All done, dude.");
+}
+
+async function generateReadMe(answers) {
+  const templateDocument = await fs.promises.readFile(
+    "/Users/samlaxton/Desktop/bootcamp/coding-ass/readme-generator/template-readme.md",
+    "utf8"
+  );
+  const readMeProfile = templateDocument
+    .replace("!", answers.Title)
+    .replace("@", answers.Description)
+    .replace("£", answers.Installation)
+    .replace("$", answers.Usage)
+    .replace("^", answers.Contribution)
+    .replace("&", answers.Tests);
+  await fs.promises.writeFile("readme.md", readMeProfile);
+}
+
+collectAnswersAndGenerate();

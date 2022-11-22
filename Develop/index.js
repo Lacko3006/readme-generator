@@ -1,34 +1,64 @@
-const inquirer = require('inquirer')
-const fs = require('fs')
+const inquirer = require("inquirer");
+const fs = require("fs");
 
 const questions = [
-    "What is your project title?",
-    "What is the best way to describe your project?",
-    "What are the installation instructions for your project?",
-    "What is the usage information you would like to provide?",
-    "What are your contribution guidelines?",
-    "What are the test instructions?",
-]
+  "Title",
+  "Description",
+  "Installation",
+  "Usage",
+  "Contribution",
+  "Test",
+];
 
-const questionsArray = questions.map(it => {
-    return {
-        type: "input",
-        name: it,
-        message: it,
-    };
-})
+const licenseQuestion = {
+    type: "list",
+    name: "license",
+    message: "License"
+    choices: [
 
-async function askQuestions() {
-    return await inquirer.prompt(questionsArray)
+    ]
 }
 
-askQuestions()
+questionsArray.push(licenseQuestion)
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const questionsArray = questions.map(it => {
+  return {
+    type: "input",
+    name: it,
+    message: it,
+  };
+});
 
-// TODO: Create a function to initialize app
-function init() {}
+// async function askQuestions() {
+//   return await inquirer.prompt(questionsArray);
+// }
 
-// Function call to initialize app
-init();
+async function collectAnswersAndGenerate() {
+    console.log('Answer some questions, dude.')
+    const responses = await askQuestions(dummyAnswers)
+    console.log('Generating HTML from template.')
+    await generateReadMe(responses)
+    console.log('All done, dude.')
+  }
+
+async function generateReadMe(answers) {
+    const templateDocument = await fs.promises.readFile('/Users/samlaxton/Desktop/bootcamp/coding-ass/readme-generator/template-readme.md', 'utf8')
+    const readMeProfile = templateDocument
+      .replace('!', answers.Title)
+      .replace('@', answers.Description)
+      .replace('£', answers.Installation)
+      .replace('$', answers.Usage)
+      .replace('%', answers.Contribution)
+    await fs.promises.writeFile('readme.md', readMeProfile)
+  }
+
+const dummyAnswers = {
+    Title: "hello",
+  Description: "yes",
+  Installation: "how",
+  Usage: "no",
+  Contribution: "okay",
+  Test: "what",
+}
+
+collectAnswersAndGenerate()

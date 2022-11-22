@@ -37,7 +37,7 @@ async function askQuestions() {
 
 async function collectAnswersAndGenerate() {
   console.log("Answer some questions, dude.");
-  const responses = await askQuestions(dummyAnswers);
+  const responses = await askQuestions();
   console.log("Generating HTML from template.");
   await generateReadMe(responses);
   console.log("All done, dude.");
@@ -52,7 +52,7 @@ async function generateReadMe(answers) {
     .replace("!", answers.Title)
     .replace("@", answers.Description)
     .replace("£", answers.Installation)
-    .replace("$", answers.Usage)
+    .replace("%", answers.Usage)
     .replace("^", answers.Contribution)
     .replace("&", answers.Tests);
   await fs.promises.writeFile("readme.md", readMeProfile);

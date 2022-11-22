@@ -12,7 +12,7 @@ const questions = [
 
 const licenseQuestion = {
   type: "list",
-  name: "License",
+  name: "license",
   message: "License",
   choices: [
     "Apache License, Version 2.0",

@@ -12,7 +12,7 @@ const questions = [
 
 const licenseQuestion = {
   type: "list",
-  name: "license",
+  name: "License",
   message: "License",
   choices: [
     "Apache License, Version 2.0",
@@ -48,13 +48,17 @@ async function generateReadMe(answers) {
     "/Users/samlaxton/Desktop/bootcamp/coding-ass/readme-generator/template-readme.md",
     "utf8"
   );
-  const readMeProfile = templateDocument
-    .replace("!", answers.Title)
+  let readMeProfile = templateDocument
+    .replace("+", answers.Title)
     .replace("@", answers.Description)
-    .replace("£", answers.Installation)
+    .replace("$", answers.Installation)
     .replace("%", answers.Usage)
     .replace("^", answers.Contribution)
-    .replace("&", answers.Tests);
+    .replace("&", answers.Tests)
+    if (answers.License === "Apache License, Version 2.0"){ 
+    readMeProfile = readMeProfile.replace("*", "The Apache Software Foundation uses various licenses to distribute software and documentation, and to accept regular contributions from individuals and corporations and larger grants of existing software products. These licenses help us achieve our goal of providing reliable and long-lived software products through collaborative, open-source software development. In all cases, contributors retain full rights to use their original contributions for any other purpose outside of Apache while providing the ASF and its projects the right to distribute and build upon their work within Apache.")
+    .replace("§", "https://opensource.org/files/OSI_Approved_License.png");
+}
   await fs.promises.writeFile("readme.md", readMeProfile);
 }
 

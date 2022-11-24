@@ -1,4 +1,4 @@
-![License Logo](https://opensource.org/files/OSI_Approved_License.png)
+![License Logo](https://img.shields.io/badge/eclipse%20marketplace-v1.0.1-blue)
 # no 
 
 ## Description
@@ -27,9 +27,9 @@ no
 no
 
 ## License
-The Apache Software Foundation uses various licenses to distribute software and documentation, and to accept regular contributions from individuals and corporations and larger grants of existing software products. These licenses help us achieve our goal of providing reliable and long-lived software products through collaborative, open-source software development. In all cases, contributors retain full rights to use their original contributions for any other purpose outside of Apache while providing the ASF and its projects the right to distribute and build upon their work within Apache.
+The Eclipse Public License is a free and open source software license most notably used for the Eclipse IDE and other projects by the Eclipse Foundation. It replaces the Common Public License and removes certain terms relating to litigations related to patents.
 
 
 ## Questions
-Github Link
-Email Address
+https://github.com/no
+no

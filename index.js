@@ -6,7 +6,7 @@ const questions = [
   "Description",
   "Installation",
   "Usage",
-  "Contribution",
+  "Contributing",
   "Tests",
   "GitHub",
   "Email"
@@ -55,7 +55,7 @@ async function generateReadMe(answers) {
     .replace("@", answers.Description)
     .replace("$", answers.Installation)
     .replace("%", answers.Usage)
-    .replace("^", answers.Contribution)
+    .replace("^", answers.Contributing)
     .replace("&", answers.Tests)
     .replace("?", answers.GitHub)
     .replace("=", answers.Email)

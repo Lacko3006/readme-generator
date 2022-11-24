@@ -1,4 +1,4 @@
-# readme.md Generator
+# README.md Generator
 
 ## Description
 
@@ -7,4 +7,4 @@ This web application is a README.md generator, this is used to create a high-qua
 This project was build to demonstrate my ability of using node.js and different packages to allow me to create this readme.md generator with JavaScript.
 
 ## Mock Up
-![README.md Generator](
+![README.md Generator](./images/readme-generator.png)

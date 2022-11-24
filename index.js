@@ -52,11 +52,11 @@ async function generateReadMe(answers) {
   );
   let readMeProfile = templateDocument
     .replace("+", answers.Title)
-    .replace("@", answers.Description)
+    .replace("}", answers.Description)
     .replace("$", answers.Installation)
     .replace("%", answers.Usage)
     .replace("^", answers.Contributing)
-    .replace("/", answers.Tests)
+    .replace("<", answers.Tests)
     .replace("?", answers.GitHub)
     .replace("=", answers.Email)
     if (answers.License === "Apache License, Version 2.0"){ 

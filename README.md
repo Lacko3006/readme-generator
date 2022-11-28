@@ -9,5 +9,5 @@ This project was build to demonstrate my ability of using node.js and different 
 ## Mock Up
 ![README.md Generator](./images/readme-generator.png)
 
-## Google Drive Application Walk hrough Link
+## Google Drive Application Walk Through Link
 https://drive.google.com/file/d/19booD_SGo1OdDejbeYOJydccxme42GYR/view?usp=share_link
